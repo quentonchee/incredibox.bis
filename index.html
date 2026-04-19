@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Incredibox Clone – Beat Box Fun</title>
+  <meta name="description" content="Crée ta propre musique avec des personnages animés. Un clone d'Incredibox fait en HTML/CSS/JS pur." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- INTRO SCREEN -->
+  <div id="intro-screen">
+    <div class="intro-content">
+      <div class="intro-logo">
+        <span class="logo-inc">INCR</span><span class="logo-edi">EDI</span><span class="logo-box">BOX</span>
+      </div>
+      <p class="intro-sub">Mix. Beat. Create.</p>
+      <button id="start-btn" class="btn-start">▶ JOUER</button>
+    </div>
+    <div class="intro-particles" id="intro-particles"></div>
+  </div>
+
+  <!-- MAIN GAME -->
+  <div id="game-screen" class="hidden">
+    <header class="game-header">
+      <div class="header-logo">INCREDIBOX</div>
+      <div class="header-controls">
+        <button id="record-btn" class="ctrl-btn" title="Enregistrer">⏺ REC</button>
+        <button id="screenshot-btn" class="ctrl-btn" title="Screenshot">📷</button>
+        <button id="reset-btn" class="ctrl-btn danger" title="Tout effacer">🗑 RESET</button>
+      </div>
+    </header>
+
+    <!-- STAGE: characters -->
+    <section class="stage" id="stage">
+      <div class="stage-bg"></div>
+      <div class="characters-row" id="characters-row">
+        <!-- Injected by JS -->
+      </div>
+      <div class="stage-glow" id="stage-glow"></div>
+    </section>
+
+    <!-- ICONS PANEL -->
+    <section class="icons-panel" id="icons-panel">
+      <div class="panel-tabs">
+        <button class="tab-btn active" data-tab="beats" id="tab-beats">🥁 Beats</button>
+        <button class="tab-btn" data-tab="bass" id="tab-bass">🎸 Bass</button>
+        <button class="tab-btn" data-tab="melody" id="tab-melody">🎹 Mélodie</button>
+        <button class="tab-btn" data-tab="fx" id="tab-fx">✨ FX</button>
+        <button class="tab-btn" data-tab="chorus" id="tab-chorus">🎤 Chœur</button>
+      </div>
+      <div class="icons-grid" id="icons-grid">
+        <!-- Injected by JS -->
+      </div>
+    </section>
+
+    <!-- MIXER BAR -->
+    <footer class="mixer-bar" id="mixer-bar">
+      <div class="mixer-visualizer" id="mixer-visualizer">
+        <canvas id="viz-canvas"></canvas>
+      </div>
+      <div class="mixer-slots" id="mixer-slots">
+        <!-- Active loop indicators -->
+      </div>
+      <div class="bpm-control">
+        <label>BPM</label>
+        <input type="range" id="bpm-slider" min="60" max="160" value="100" />
+        <span id="bpm-display">100</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- TOOLTIP -->
+  <div class="tooltip" id="tooltip"></div>
+
+  <!-- RECORDING INDICATOR -->
+  <div class="rec-indicator hidden" id="rec-indicator">⏺ REC</div>
+
+  <script src="audio.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
